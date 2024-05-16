@@ -1,5 +1,5 @@
 package objectPage;
-
+import org.openqa.selenium.firefox.FirefoxDriver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.checkerframework.checker.units.qual.A;
 import org.junit.After;
@@ -52,13 +52,14 @@ public CreateOrderTest(Enum button, String name, String secondName, String addre
     public static Object[][] getParameters() {
             return new Object[][] {
                     {HEADER_CREATE_ORDER_BUTTON, "Кристофер","Робен","Адрес1","Новокузнецкая","79111111111","15.05.2024","четверо суток",GREY,"Это комментарий из теста 1"},
-                    {MIDDLE_CREATE_ORDER_BUTTON, "Винни","Пух","Адрес2","Электрозаводская","79222222222","16.05.2024",BLACK,"сутки","Это комментарий из теста 2"}
+                    {MIDDLE_CREATE_ORDER_BUTTON, "Винни","Пух","Адрес2","Электрозаводская","79222222222","16.05.2024","сутки",BLACK,"Это комментарий из теста 2"}
             };
 
     }
     @Before
     public void setUp() {
-   WebDriverManager.firefoxdriver().setup();
+        System.setProperty("webdriver.gecko.driver","C:\\Users\\Professional\\GekoDriver\\bin\\geckodriver.exe");
+   //WebDriverManager.firefoxdriver().setup();
     driver = new FirefoxDriver();
     driver.get(webSite);
     }
